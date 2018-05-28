@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小未 会赚钱的区块链智能音箱</title>
+    <title>小未 会赚钱的区块链智能音箱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript">
+        function fontSize(){
+            var deviceWidth=document.documentElement.clientWidth>768?768:document.documentElement.clientWidth;
+            document.documentElement.style.fontSize=(deviceWidth/25)+"px";
+        }
+        fontSize();
+        window.onresize=fontSize;
+    </script>
+    <style>
+        html,body{
+            background: #fff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: .9rem;
+            color: #000;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .invitation{
+            padding-bottom: 2.5rem;
+        }
+        header{
+            padding: 1rem .6rem;
+            display: flex;
+        }
+        header>div{
+            flex-grow: 1;
+        }
+        header>div div{
+            width: 74%;
+            margin-left: 1rem;
+            border-radius: .5rem;
+            padding: .5rem;
+            position: relative;
+            border: 1px solid #aaa;
+        }
+        header>div div:after,header>div div:before{
+            border: solid transparent;
+            content: ' ';
+            height: 0;
+            left: -1.30rem;
+            position: absolute;
+            width: 0;
+        }
+        header>div div:after {
+            border-width: 8px;
+            border-right-color: #fff;
+            top: .6rem;
+            left: -1.1rem;
+        }
+        header>div div:before{
+           border-width: 10px;
+           border-right-color: #aaa;
+           top: .45rem;
+           left: -1.4rem;
+        }
+        header .namewX{
+            padding: .3rem 1.5rem;
+            color: #ccc;
+        }
+        header img{
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            margin-top: .6rem;
+        }
+        .main{
+            width: 92%;
+            background: #fff;
+            margin: auto;
+            padding: .6rem ;
+            border-radius: .5rem;
+        }
+        .main .box{
+            box-shadow: 0px 5px 10px #eee;
+            padding-bottom: 2rem;
+        }
+        .main img{
+            width: 100%;
+            border-radius: .4rem;
+        }
+        .main p{
+            line-height: 3;
+        }
+        .Ybtn{
+            padding: .5rem 3rem;
+            background: #fff;
+            border: 1px solid #0cedf1;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            color: #0aeeed;
+        }
+        .center{
+            text-align: center;
+        }
+
+        .conList{
+            background: #fff;
+            width: 85%;
+            margin: auto;
+            padding-top: 1rem;
+        }
+        .til p{
+            font-size: 1.3rem;
+            position: relative;
+            margin-bottom: .5rem;
+        }
+        .til p::after,.til p::before{
+            content: "";
+            position: absolute;
+            top:.8rem;
+            width: 20%;
+            height: 1px;
+            border-bottom: 1px solid #333;
+        }
+        .til p::after{right: 2rem}
+        .til p::before{left: 2rem;}
+        ul li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .6rem 0;
+        }
+        ul img{
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            margin-right: 2rem;
+            vertical-align: middle;
+        }
+        ul{
+            padding: 1rem 2rem;
+            height: 19rem;
+            overflow: auto;
+        }
+
+        .alert{
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 222;
+            background: rgba(0,0,0,.5);
+            text-align: center;
+        }
+        .alert>div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .alert>div>div{
+            width: 90%;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 5px;
+        }
+        .alert img{
+            width: 1.8rem ;
+            height: 1.8rem;
+        }
+        .alert p{
+            color: #000;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+        .pho p{
+            font-size: .8rem;
+            color: #999;
+            text-align: left;
+            margin-top: 1rem;
+        }
+        .alert input{
+            outline: none;
+            width: 100%;
+            height: 2rem;
+            color: #000;
+            border-left-width:0px;
+            border-right-width:0px;
+            border-top-width:0px;
+            border-bottom-width: 1px;
+            border-bottom-color:#999;
+        }
+        .pho{
+            position: relative;
+        }
+        .pho button{
+            position: absolute;
+            width: 30%;
+            border: none;
+            outline: none;
+            line-height: 2;
+            background: #fff;
+            text-align: center;
+            right: .1rem;
+            top: 1rem;
+            color: #000;
+            font-size: 1rem;
+        }
+        .RushBuy{
+            padding: .7rem 3.5rem;
+            background: #0cedf1;
+            margin-top: 2rem;
+            border-radius: 1.4rem;
+            border: none;
+            font-size: 1.2rem;
+            color: #fff;
+            box-shadow: 0 0 1rem #0cedf1;
+        }
+        .html{
+            overflow: hidden;
+            height: 100%;
+        }
+        header p{
+            font-size: .8rem;
+            line-height: 1.6;
+        }
+        .gzimg img{
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="invitation">
+    <header>
+        <img id="tilImg" class="img" src="" alt="">
+        <div>
+            <p class="namewX">我都饿是多少</p>
+            <div>
+                <p>颠覆想象的小未音箱，快帮我抢</p>
+                <p>第一批创世版，全球仅有10台。</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="main center">
+        <div class="box">
+            <img src="img/home1.jpg" alt="">
+            <p>小未 会赚钱的区块链智能音箱</p>
+            <button class="Ybtn">帮TA抢购</button>
+        </div>
+    </div>
+
+    <div class="conList">
+        <div class="center til">
+            <p>助抢团队</p>
+            <span id="numLu"></span>人已助抢
+        </div>
+        <ul class="list">
+            <!--<li>-->
+                <!--<div>-->
+                    <!--<img src="img/img1.png" alt="">-->
+                    <!--<span>乔治</span>-->
+                <!--</div>-->
+                <!--<p>cuty</p>-->
+            <!--</li>-->
+        </ul>
+    </div>
+
+    <!--模态框-->
+    <div class="alert alert1">
+        <div>
+            <div>
+                <img class="img" src="img/img.png" alt="">
+                <p>帮好友助抢小未</p>
+                <div class="pho">
+                    <p>请输入手机号</p>
+                    <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" class="phone1" type="tel"  placeholder="">
+                    <!--<span class="cha"></span>-->
+                </div>
+                <div class="pho">
+                    <p>请输入验证码</p>
+                    <input class="yzm1" type="text" placeholder="">
+                    <button class="gettime" onclick="getyzm1()">获取验证码</button>
+                </div>
+                <button class="RushBuy">立即助抢</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="gzimg">
+        <img src="img/baiimg.jpg" alt="">
+    </div>
+
+</div>
+
+
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/js/jquery-3.1.1.js"></script>
+<script src="js/base.js"></script>
+<script src="/js/handlebars.js"></script>
+<script src="js/pull.js"></script>
+<script id="table-template" type="text/x-handlebars-template">
+
+    {{#each this}}
+        <li>
+            <div>
+                <img src="{{imgurl}}" alt="">
+                <span>{{ nickname}}</span>
+            </div>
+            <p>{{shap_up_code}}</p>
+        </li>
+    {{/each}}
+</script>
+<script>
+    var base = new Base64();
+
+    var server = 'http://tfm.futuremelody.cn';
+
+    $(".alert2").show();
+    function getParams(key) {
+        var url = location.search.replace(/^\?/, '').split('*');
+        var paramsObj = {};
+        for(var i = 0, iLen = url.length; i < iLen; i++) {
+            var param = url[i].split('=');
+            paramsObj[param[0]] = param[1];
+        }
+        if(key) {
+            return paramsObj[key] || '';
+        }
+        return paramsObj;
+    }
+
+    // 获取当前url-->
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+
+        // alert(getParams('forphone'));
+        // alert(getParams('sharemd5'));
+        // alert(getQueryString('code'));
+
+    if (sessionStorage.getItem('whopeople') == null) {
+        var date ={
+                forphone:getParams('forphone'),
+                sharemd5:getParams('sharemd5').split('&')[0],
+                wxcode:getQueryString('code')
+            }
+    }else{
+        var date = {
+            forphone:getParams('forphone'),
+            sharemd5:getParams('sharemd5').split('&')[0],
+            imgurl:JSON.parse(sessionStorage.getItem('whopeople')).imgurl,
+            openid:JSON.parse(sessionStorage.getItem('whopeople')).openid,
+            nickname:JSON.parse(sessionStorage.getItem('whopeople')).nickname,
+        }
+    }
+    $.ajax({
+        url: server+"/helpToBuyList",
+        data:date,
+        type:"post",
+        success:function (data) {
+            console.log(data);
+            if (data.code == 0){
+                sessionStorage.setItem("whopeople",JSON.stringify(data.data.whopeople));
+                $("#tilImg").attr("src",data.data.forpeople.imgurl);
+                // alert(data.data.forpeople.nickname)
+                // alert(base.decode(data.data.forpeople.nickname))
+                $(".namewX").text(base.decode(data.data.forpeople.nickname));
+                // var myTemplate = Handlebars.compile($("#table-template").html());
+                // $('.list').html(myTemplate(data.data));
+                var myTemplate = Handlebars.compile($("#table-template").html());
+                var arr =[];
+                $("#numLu").text(data.data.forpeople.forpeoplelist.length);
+                for (item of data.data.forpeople.forpeoplelist){
+                    var obj ={};
+                    var nickname = base.decode(item.nickname);
+                    obj.nickname = nickname;
+                    obj.imgurl = item.imgurl;
+                    obj.shap_up_code = item.shap_up_code;
+                    arr.push(obj);
+                }
+                console.log(arr);
+                $('.list').html(myTemplate(arr));
+
+                if(data.data.state == 1){
+                    $(".Ybtn").text("我也要抢");
+                    $(".Ybtn").css({'border': '1px solid #ff6d1c','color':'#ff6d1c'})
+                }else{
+                    $(".Ybtn").text("立即助抢");
+                }
+            }else{
+                window.location.href ='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe64da4634a1115d1&redirect_uri=http://tfm.futuremelody.cn/home&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+            }
+
+        }
+    });
+
+    //点击帮他抢购
+    $(".Ybtn").click(function () {
+        if($(this).text() == "我也要抢"){
+            window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe64da4634a1115d1&redirect_uri=http://tfm.futuremelody.cn/home&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+        }else{
+            $(".alert1").slideDown();
+            $('body,html').addClass("html");
+        }
+    });
+
+
+    // 立即助抢
+    $(".RushBuy").click(function () {
+        $.ajax({
+            url:server +"/helpPeople",
+            data:{
+                whophone:$(".phone1").val(),
+                forphone:getParams('forphone'),
+                code:$(".yzm1").val(),
+                imgurl:JSON.parse(sessionStorage.getItem('whopeople')).imgurl,
+                nickname:JSON.parse(sessionStorage.getItem('whopeople')).nickname,
+                openid:JSON.parse(sessionStorage.getItem('whopeople')).openid,
+            },
+            type:"post",
+            success:function (res) {
+                console.log(res);
+                if(res.code == 0){
+                    // alert(res.data);
+                    window.location.reload();
+                }else{
+                    alert(res.msg)
+                }
+            }
+        })
+    })
+
+
+    //微信分享
+    $.ajax({
+        url: server + "/share",  //接口地址
+        type:"POST",
+        dataType:"json",
+        data:{
+            "url": window.location.href,
+        },
+        success:function(data){
+            wxstart(data.data, server+'/index7?forphone='+getParams('forphone')+'&sharemd5='+getParams('sharemd5').split('&')[0]);
+        }
+    });
+</script>
+<script src="js/wx_pull.js"></script>
+</html>

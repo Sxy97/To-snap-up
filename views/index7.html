@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>正在跳转...</title>
+
+</head>
+<body>
+<div class="main">
+
+</div>
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+
+<script>
+    // 获取当前url-->
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+    // wxe64da4634a1115d1
+    window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe64da4634a1115d1&redirect_uri=http://tfm.futuremelody.cn/Invitation?forphone="+getQueryString("forphone")+"*sharemd5="+getQueryString("sharemd5")+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+</script>
+</html>

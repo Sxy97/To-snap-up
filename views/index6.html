@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>参与中奖</title>
+    <style>
+        html,body{
+            font-size: 625%;
+            height: 100%;
+            background: #1a2c30;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: .14rem;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .main{
+            position: relative;
+            z-index: 122;
+            margin-top: -1rem;
+            padding: 0 .25rem;
+        }
+        .head img{
+            width: 100%;
+        }
+        h4{
+            font-size: .2rem;
+            margin-top: .2rem;
+        }
+        .center{
+            text-align: center;
+        }
+        .con{
+            padding: 0 .24rem .3rem;
+            background: #fff;
+        }
+        .pho{
+            border-bottom: 1px solid #000;
+            margin-bottom: .2rem;
+            position: relative;
+        }
+        .pho input{
+            outline: none;
+            border: none;
+            line-height: 2.5;
+        }
+        .cha{
+            display: block;
+            position: absolute;
+            top: .1rem;
+            right: .2rem;
+            width: .3rem;
+            height: .3rem;
+            background: 80% 13% url("img/img_cha.png") no-repeat;
+            -webkit-background-size: 100% 100%;
+            background-size: 60% 60%;
+        }
+        .from{
+            padding-top: .2rem;
+        }
+        .phone{
+            width: 100%;
+            position: relative;
+        }
+        .yzm{
+            width: 50%;
+        }
+        .pho div{
+            position: absolute;
+            width: 50%;
+            line-height: 2;
+            height: 100%;
+            background: #fff;
+            text-align: center;
+            right: 0;
+            bottom: -2px;
+        }
+        .btn{
+            margin-top: .4rem;
+        }
+        .btn a{
+            display: block;
+            font-size: .17rem;
+            padding: .1rem 0;
+            background: #896c40;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <img src="img/img_s1.jpg" alt="">
+</div>
+
+<div class="main">
+    <div class="con">
+        <!--获取验证码-->
+        <div class="from">
+            <div class="pho">
+                <input required class="ma" type="text" name="ma" placeholder="请输入抢购码">
+                <span class="cha"></span>
+            </div>
+            <div class="pho">
+                <input required class="phone" type="tel" name="tel" placeholder="请输入手机号">
+                <span class="cha"></span>
+            </div>
+            <div class="pho">
+                <input required class="yzm" type="text" name="yzm" placeholder="请输入验证码">
+                <div id="time" onclick="getyzm()">获取验证码</div>
+            </div>
+            <div class="btn btn_z center">
+                <a>确认支付999元</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/pull.js"></script>
+
+</html>

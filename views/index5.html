@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>支付成功</title>
+    <script type="text/javascript">
+        function fontSize(){
+            var deviceWidth=document.documentElement.clientWidth>768?768:document.documentElement.clientWidth;
+            document.documentElement.style.fontSize=(deviceWidth/25)+"px";
+        }
+        fontSize();
+        window.onresize=fontSize;
+    </script>
+    <style>
+        html,body{
+            height: 100%;
+            background: #181214;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: 1rem;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .main{
+            padding: 0 1.5rem 4rem;
+            position: relative;
+            margin-top: -9.4rem;
+        }
+        .head img{
+            width: 100%;
+        }
+        h3{
+            position: relative;
+            padding: 1rem 0;
+            font-size: 1rem;
+            background: url(img/img_til.png) center no-repeat;
+            background-size: 100% 30%;
+        }
+        .center{
+            text-align: center;
+        }
+        .con{
+            padding: 0 1.5rem 2rem;
+            background: #fff;
+        }
+        .lie p{
+            display: block;
+            width: 50%;
+            margin: 1rem auto 0;
+            background: #e0d5b9;
+            padding: 1rem 0 .5rem;
+            color: #000;
+        }
+        .lie i{
+            color: #896c40;
+        }
+        .lie img{
+            width: .6rem;
+            height: .8rem;
+        }
+
+    </style>
+</head>
+<body>
+<div class="head">
+    <img src="img/img_s1.jpg" alt="">
+</div>
+
+<div class="main">
+    <div class="con">
+        <!--获取验证码-->
+        <h3 class="center">恭喜您成功购买小未音箱</h3>
+        <p class="center">客服24小时内与您联系。客服电话：4006771577</p>
+        <div class="hide">
+            <h2 class="center" style="margin-top: 1.4rem">今日抢购码</h2>
+            <div class="lie center">
+                <p style="cursor: pointer;" class="copy" data-clipboard-text="dfgssae1"><span class="code" >dfgssae3</span> <br><i style="font-size: .08rem"><img src="img/fz.png" alt="">点击可复制</i></p>
+                <p class="copy" data-clipboard-text="dfgssae2"><span class="code" >dfgssae3</span> <br><i style="font-size: .08rem"><img src="img/fz.png" alt="">点击可复制</i></p>
+                <p style="cursor: pointer;" class="copy" data-clipboard-text="dfgssae3"><span class="code">dfgssae3</span><br><i style="font-size: .08rem"><img src="img/fz.png" alt="">点击可复制</i></p>
+            </div>
+            <div class="botton center" style="margin-top: 1rem">抢购码可以赠送给你的好友</div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/clipboard.js"></script>
+<script>
+    var sever = "http://tfm.futuremelody.cn";
+    // var sever = "http://192.168.1.10:3000";
+
+    var clipboard = new ClipboardJS(".copy");
+
+    clipboard.on('success', function(e) {
+        alert("复制成功");
+    });
+    clipboard.on('error', function(e) {
+        alert("复制失败");
+    });
+    // 复制
+    // var clipboard = new Clipboard(".copy").on("success", function(e) {
+    //     var e = e || window.event;
+    //     console.log(clipboard);
+    //     alert("複製地址成功");
+    // }).on("error", function(e) {
+    //     alert("複製失敗");
+    // });
+
+    // var odj = JSON.parse(localStorage.getItem("key"));
+    // $.ajax({
+    //     url:sever+"/presentCodeList",
+    //     type:"post",
+    //     data:{
+    //         phone:odj.phone,
+    //         token:odj.token
+    //     },
+    //     success:function (res) {
+    //         console.log(res);
+    //         if(res.code == 0){
+    //             if(res.data.state == 1){
+    //                 var str="";
+    //                 for (var i=0; i< res.data.presentCodeList.length;i++) {
+    //                     console.log(i);
+    //                     str +=`<p class="copy" data-clipboard-text="${res.data.presentCodeList[i].shap_up_code}"><span class="code">${res.data.presentCodeList[i].shap_up_code}</span><br><i style="font-size: .08rem"><img src="img/fz.png" alt="">点击可复制</i></p>`
+    //                 }
+    //                 $(".lie").html(str);
+    //             }else{
+    //                 $(".hide").hide();
+    //                 $(".con").css("padding-bottom","3rem")
+    //             }
+    //         }
+    //     },
+    // })
+
+</script>
+</html>

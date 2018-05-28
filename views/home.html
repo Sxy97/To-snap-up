@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小未 会赚钱的区块链智能音箱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript">
+        function fontSize(){
+            var deviceWidth=document.documentElement.clientWidth>768?768:document.documentElement.clientWidth;
+            document.documentElement.style.fontSize=(deviceWidth/25)+"px";
+        }
+        fontSize();
+        window.onresize=fontSize;
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .mei{
+            padding: 3rem 0;
+        }
+        .num2,.num1,.tiem{
+            display: none;
+        }
+        .colo1 span,.colo1 p{
+            color: red;
+        }
+        .colo2{
+            opacity: .6;
+        }
+        header .price{
+            color:#ffffff;
+            font-size:1.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+
+    <header class="center">
+        <span class="spanWhat">如何抢购</span>
+        <img src="img/home1.jpg" alt="">
+        <h1>抢<span class="biaoti">创世版</span>音箱 赢光明钱途</h1>
+        <p class="tilT2">全球仅此10台，万千大佬愿花重金跪求</p>
+        <p class="hide">您准备好了吗？</p>
+        <p class="price">￥999</p>
+        <p class="tilx">5月10日 20:00点开奖</p>
+        <button class="robbing">点我开抢</button>
+        <div>
+            <img class="img" src="img/img.png" alt="">
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="title num2">
+            <h1 class="center">您还没有抢购小未音箱
+                <!--<span class="fill">填写收货地址</span>-->
+            </h1>
+        </div>
+        <div class="title center num1">
+            <p>感谢您的参与</p>
+            <h1 class="h1">很遗憾您没有中奖</h1>
+        </div>
+        <div class="title center tiem">
+            <p style="color: #0aeeed;line-height: 3">距离开奖还有</p>
+            <div>
+                <span class="day">0天</span>
+                <span class="hour">00</span>时
+                <span class="minus">00</span>分
+                <span class="seconds">00</span>秒
+            </div>
+        </div>
+
+        <div class="zhifu">
+            <p style="font-size: .6rem">请在30分钟之内完成支付，否则视为放弃购买资格</p>
+            <button>立即支付</button>
+        </div>
+
+        <div class="conHead">
+            <div class="head">
+                <img class="" src="img/img.png" alt="">
+                <img id="tilImg" src="" alt="">
+                <img class="" src="img/img.png" alt="">
+            </div>
+            <div class="text center state1">
+                我的抢购码
+            </div>
+        </div>
+
+        <!--没有开始-->
+        <div class="conMain1">
+            <div class="shap"> - - </div>
+            <p class="center zhongjian">请越多好友助抢，越容易中奖哦</p>
+            <h2 class="center">助抢团队</h2>
+            <p class="center"><span id="shuL">0</span>人已助抢</p>
+            <ul class="list">
+                <p class="center mei">还没有人为您助抢</p>
+            </ul>
+        </div>
+        <!--没有抢过的-->
+        <div class="conMain2">
+            <h2 class="center">抢购码</h2>
+            <p class="center">抢购码有效时间为24小时</p>
+            <div class="list1">
+                <p class="center">抢购成功才能生成抢购码哦</p>
+            </div>
+        </div>
+
+
+        <div class="yao">
+            <button>邀请好友助抢</button>
+        </div>
+
+        <div class="center">
+            <img class="img" src="img/img.png" alt="">
+        </div>
+    </div>
+
+    <!--规则-->
+    <div class="rule">
+        <div class="">
+            <img src="img/img_01.jpg" alt="">
+            <img src="img/img_02.jpg" alt="">
+            <img src="img/img_03.jpg" alt="">
+            <img src="img/img_04.jpg" alt="">
+            <!--<p class="center tilda txh1">为什么要抢</p>-->
+            <!--<div class="conText center">-->
+                <!--创世版全球仅10台，<br>-->
+                <!--抢到它，大佬们挤破头抱您大腿！<br>-->
+                <!--不仅拥有每天获取3个抢购码的创世特权，<br>-->
+                <!--后来者只能向您跪求购买资格，<br>-->
+                <!--且在抢到当天立即获得20万个分贝（积分）-->
+            <!--</div>-->
+            <!--<p class="center tilda">活动规则</p>-->
+            <!--<div class="conText">-->
+                <!--<p>抢购创世版（5月11日20:00—5月13日20:00）</p>-->
+                <!--1.参与活动获得抢购码<br>-->
+                <!--2.邀请好友助抢，获得更多的抢购码（抢购码越多，中奖几率越大）<br>-->
+                <!--3.5月13日20:00开奖，创世版小未音箱诞生。以抽奖的方式选出中奖的抢购码，中奖者成功支付（30分钟内完成支付），即可获得创世版<br>-->
+                <!--4.创世版获得者，每天可收获3个抢购码<br>-->
+            <!--</div>-->
+            <!--<div class="conText">-->
+                <!--<p>抢购小未（5月13日20:00—5月20日20:00）</p>-->
+                <!--1.创世版获得者把抢购码分享给好友，好友凭抢购码参与抢购<br>-->
+                <!--2.每天发售的音箱数量有限，用户凭抢购码完成支付，先到先得<br>-->
+                <!--3.成功完成抢购的用户，每天可收获2个抢购码<br>-->
+                <!--4.想抢购的用户，需找到抢购码，才能参与抢购<br>-->
+            <!--</div>-->
+
+            <!--<div class="conText">-->
+                <!--<p>其他说明</p>-->
+                <!--1.每人限购1台<br>-->
+                <!--2.每个抢购码有效时间为24小时<br>-->
+                <!--3.活动期间，每日赠与当天所有成功购买音箱者共计200万个分贝（据当天成功购买人数平均分配）<br>-->
+                <!--4.本活动最终解释权归本公司所有<br>-->
+            <!--</div>-->
+            <!--<p class="tilda center">END</p>-->
+        </div>
+        <span class="cha"><img src="img/img_cha.png" alt=""></span>
+    </div>
+
+    <!--点我开抢-->
+    <div class="kaiqiang">
+        <div>
+            <img class="img" src="img/img.png" alt="">
+            <p>抢购小未</p>
+            <div class="pho">
+                <p>请输入手机号</p>
+                <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" class="phone1" type="tel"  placeholder="">
+                <!--<span class="cha"></span>-->
+            </div>
+            <div class="pho">
+                <p>请输入验证码</p>
+                <input class="yzm1" type="text" placeholder="">
+                <button class="gettime" onclick="getyzm1()">获取验证码</button>
+            </div>
+            <button class="RushBuy" onclick="setmsg()">立即抢购</button>
+            <span class="cha"><img src="img/img_cha.png" alt=""></span>
+        </div>
+    </div>
+
+    <!--填写收货地址-->
+    <div class="address">
+        <div class="center">
+            <img class="img " src="img/img.png" alt="">
+            <p>请填写收货地址</p>
+            <div><span class="tilz">收货人电话</span><input type="text" class="phone addPhone" placeholder="点击此处填写"></div>
+            <div><span >收货人名字</span><input id="FullName" type="text" placeholder="点击此处填写"></div>
+            <div><span class="tilz">收货人地址</span><input id="address" type="text" placeholder="点击此处填写"></div>
+            <button class="next">下一步</button>
+            <span class="cha"><img src="img/img_cha.png" alt=""></span>
+        </div>
+    </div>
+
+
+    <!--点击邀请好友-->
+    <div class="moYao">
+        <img class="shou" src="img/share.png" alt="">
+        <!--<img class="ewm" src="img/share.png" alt="">-->
+    </div>
+
+    <!--立即支付-->
+    <div class="mozhifu">
+        <div>
+            <img class="img" src="img/img.png" alt="">
+            <p>抢购小未</p>
+            <div class="pho">
+                <p>请输入抢购码</p>
+                <input class="qgm" type="text" placeholder="">
+            </div>
+            <div class="pho">
+                <p>请输入手机号</p>
+                <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" class="phone2" type="tel"  placeholder="">
+                <!--<span class="cha"></span>-->
+            </div>
+            <div class="pho">
+                <p>请输入验证码</p>
+                <input class="yzm" type="text" placeholder="">
+                <button class="gettime" onclick="getyzm()">获取验证码</button>
+            </div>
+            <button class="RushBuy purchase">立即购买</button>
+            <span class="cha"><img src="img/img_cha.png" alt=""></span>
+        </div>
+    </div>
+
+    <!--购买成功积分-->
+    <div class="success">
+        <span class="fill">查看收货地址</span>
+        <img class="touxiang" src="img/img1.png" alt="">
+        <h2 class="center">支付成功</h2>
+        <p class="center chenTli" style="line-height:2">恭喜您成为创世版小未的主人！<br>活动期间您将每天获得3个特权抢购码</p>
+
+        <!--tab-->
+        <div class="tab">
+            <div class="tabBtn"><button class="back">我的抢购码</button><button>我的分贝</button></div>
+            <div class="tab1 tab1_a center">
+                <div class="tab1_aL">
+                    <p class="texttishi">您已成功获得2个抢购码，今日抢购活动结束后刷新本页面即可查看，届时可以将抢购码分享给好友，让他们也拥有获得小未的机会。</p>
+                </div>
+            </div>
+            <div class="tab1 tab1_b" style="display: none">
+                <div class="tab1_bL">
+                    <ul>
+                        <li>时间</li>
+                        <li>获得分贝</li>
+                        <li>获得途径</li>
+                    </ul>
+                </div>
+                <div class="zongji">总分贝：<span class="jifen">0</span></div>
+            </div>
+
+        </div>
+        <div class="img_w center"><img src="img/rwm4.png" alt=""></div>
+        <div class="center kefu">客服电话： 4006771577</div>
+    </div>
+
+    <div class="gzimg">
+        <img src="img/heiimg.jpg" alt="">
+    </div>
+
+
+    <!--关注公众号-->
+    <!--<div class="gzgzh">-->
+        <!--<div>-->
+            <!--<div>-->
+                <!--<div class="chaG"><img src="img/img_cha.png" alt=""></div>-->
+                <!--<img src="img/gzh.jpg" alt="">-->
+                <!--<p>关注未来声音公众号<br>抢先获取抢购信息<br>实时查看您的积分</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/clipboard.js"></script>
+<script src="js/base.js"></script>
+<script src="/js/handlebars.js"></script>
+<script src="js/pull.js"></script>
+<script id="table-template" type="text/x-handlebars-template">
+
+    {{#each this}}
+    {{#if flag}}
+    <li class="colo1">
+        <div>
+            <img src="{{imgurl}}" alt="">
+            <span class="color">{{ nickname}}</span>
+        </div>
+        <p >{{shap_up_code}}</p>
+    </li>
+    {{else}}
+    <li class="colo2">
+        <div>
+            <img src="{{imgurl}}" alt="">
+            <span class="color">{{ nickname}}</span>
+        </div>
+        <p>{{shap_up_code}}</p>
+    </li>
+    {{/if}}
+    {{/each}}
+</script>
+<script id="table-template1" type="text/x-handlebars-template">
+
+    {{#each this}}
+    <li class="">
+        <div>
+            <img src="{{imgurl}}" alt="">
+            <span class="color">{{ nickname}}</span>
+        </div>
+        <p >{{shap_up_code}}</p>
+    </li>
+    {{/each}}
+</script>
+<script>
+
+    // var home = 0;
+    // setInterval(function () {
+    //     home +=1;
+    //     if(home>=120){
+    //         window.location.reload()
+    //     }
+    // },1000)
+
+    // <!--分享首页home-->
+    $.ajax({
+        url: server + "/share",  //接口地址
+        type:"POST",
+        dataType:"json",
+        data:{
+            "url": window.location.href,
+        },
+        success:function(data){
+            console.log(data);
+            wxstart1(data.data, server+'/dome');
+        }
+    });
+    // $(".mozhifu").show();
+
+    $(".tabBtn button").click(function () {
+        // alert($(this).index());
+        $(this).addClass("back").siblings().removeClass("back");
+        $(".tab1").hide();
+        $(".tab1").eq($(this).index()).show();
+    });
+
+
+    var base = new Base64();
+    // <!--时间转换-->
+    function formatDate(dateString){
+        var newString = "";
+        var starttime = new Date(dateString.replace(/-/g,"/"));
+        // alert(starttime);
+        var date = starttime.getDate();
+        var hour = starttime.getHours();
+        var minute = starttime.getMinutes();
+        var month = starttime.getMonth() + 1;
+        if(minute<10){
+            var min = "0"+minute
+        }else{
+            var min = minute
+        }
+        newString = month+"月"+date+"日"+hour+":"+min;
+        return newString;
+    }
+
+
+    if (sessionStorage.getItem('key') == null) {
+        var date ={
+            wxcode:getQueryString('code')
+        }
+    }else if(sessionStorage.getItem('value') == null){
+        var date={
+            openid:JSON.parse(sessionStorage.getItem('key')).openid,
+            imgurl:JSON.parse(sessionStorage.getItem('key')).imgurl,
+            nickname:JSON.parse(sessionStorage.getItem('key')).nickname,
+        }
+    }else{
+        var date={
+            token:JSON.parse(sessionStorage.getItem('value')).token,
+            openid:JSON.parse(sessionStorage.getItem('key')).openid,
+            imgurl:JSON.parse(sessionStorage.getItem('key')).imgurl,
+            nickname:JSON.parse(sessionStorage.getItem('key')).nickname,
+        }
+    }
+
+
+    function postion(elment){
+        $("html, body").scrollTop(0).animate({scrollTop: elment.offset().top});
+    }
+
+    function postion1(elment){
+        $("html, body").scrollTop(0).animate({scrollTop: elment.offset().top-50});
+    }
+
+
+    //请求数据
+    $.ajax({
+        url: server+'/homepage ',
+        data:date,
+        type:"post",
+        success:function (res) {
+            console.log(res);
+            
+            if(res.code == 0){
+
+                if(res.data.active.number>1){
+                    $(".tilT2").hide();
+                    $(".biaoti").text('小未');
+                }
+                sessionStorage.setItem('phone',res.data.meInformation.phone);
+                sessionStorage.setItem('value',JSON.stringify(res.data.meInformation));
+                sessionStorage.setItem('key',JSON.stringify(res.data.meInformation));
+                $(".tilx").html(formatDate(res.data.active.startime)+"开抢");
+                var starttime = new Date(res.data.active.startime.replace(/-/g,"/"));
+                var nowtime = new Date();
+                var time = starttime - nowtime;
+                if(time > 0){
+                    add2();
+                }
+                function add2(){
+                    var nowtime = new Date();
+                    var time = starttime - nowtime;
+                    setTimeout(function () {
+                        if(time > 0){
+                            add2()
+                        }else {
+                            window.location.reload();
+                        }
+                    },1000)
+                }
+                $("#tilImg").attr("src",res.data.meInformation.imgurl);
+                //整个没有开始
+                if(res.data.state == 99){
+                    $(".conMain1").show();
+                    $(".conMain2").hide();
+                    $(".yao").hide();
+                    $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+
+                }else if(res.data.state == 0){
+                //    活动没有开始
+                //     if(res.data.active.number == 1){
+                        //倒计时
+                        $(".tilx").html(formatDate(res.data.active.startime)+"开奖");
+                        var starttime = new Date(res.data.active.startime.replace(/-/g,"/"));
+                        var nowtime = new Date();
+                        var time = starttime - nowtime;
+                        if(time > 0){
+                            add1();
+                        }
+                        function add1(){
+                            var nowtime = new Date();
+                            var time = starttime - nowtime;
+                            setTimeout(function () {
+                                if(time > 0){
+                                    var days = parseInt(time / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数
+                                    var hour = parseInt(time / 1000 / 60 / 60 % 24);
+                                    var minute = parseInt(time / 1000 / 60 % 60);
+                                    var seconds = parseInt(time / 1000 % 60);
+                                    if (days<1){
+                                        $(".day").hide();
+                                    }
+                                    $(".day").text(days+"天");
+                                    $(".hour").text(hour);
+                                    $(".minus").text(minute);
+                                    $(".seconds").text(seconds);
+                                    add1()
+                                }else {
+                                    window.location.reload();
+                                }
+                            },1000)
+                        }
+                        $(".tiem").show();
+
+                        if(res.data.meInformation.type == 0){
+                            sessionStorage.setItem('value',JSON.stringify(res.data.meInformation));
+                            $(".yao").hide();
+                            //点我开抢
+                            $(".robbing").click(function (event) {
+                                event.stopPropagation();
+                                $(".kaiqiang").slideDown();
+                                $("body,html").addClass("html1");
+                            });
+                            $(".zhongjian").text("请越多好友助抢，越容易中奖哦")
+
+                        }else{
+                            postion($(".conHead"));
+                            $(".mei").show();
+                            $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+                            $(".shap").text(res.data.meInformation.mecode[0].shap_up_code);
+                            $("#shuL").text(res.data.meInformation.helpcodelist.length);
+                            $(".yao").show();
+                            sessionStorage.setItem('value',JSON.stringify(res.data.meInformation));
+
+                            var myTemplate = Handlebars.compile($("#table-template1").html());
+                            var arr =[];
+                            for (item of res.data.meInformation.helpcodelist){
+                                // alert(item.flag);
+                                var obj ={};
+                                var nickname = base.decode(item.nickname);
+                                obj.nickname = nickname;
+                                obj.imgurl = item.imgurl;
+                                obj.shap_up_code = item.shap_up_code;
+                                obj.flag = item.flag;
+                                arr.push(obj);
+                            }
+                            console.log(arr);
+                            $('.list').html(myTemplate(arr));
+                        }
+                    // }else{
+                    //
+                    // }
+
+                }else if(res.data.state == 1){
+                    //    正在开抢
+
+                    $(".yao").hide();
+                    $(".robbing").click(function () {
+                        $(".mozhifu").slideDown();
+                        $("body,html").addClass("html1");
+                    });
+                    $(".num2").show();
+                    $(".conMain1").hide();
+                    $(".conMain2").show();
+                    $(".state1").html("<p>抢购码由成功购买者产生<p/><p>若想参与请联系成功购买者或关注公众号<p/>")
+                    if(res.data.active.number != 1){
+                        sessionStorage.setItem("md5",JSON.stringify(res.data.active.md5));
+                        sessionStorage.setItem("number",JSON.stringify(res.data.active.number));
+                        sessionStorage.setItem("value",JSON.stringify(res.data.meInformation))
+                    }
+                }else if(res.data.state == 2){
+                    //    已经被抢完了
+                    sessionStorage.setItem('value',JSON.stringify(res.data.meInformation));
+                    $(".yao").hide();
+                    $(".robbing").text("今日已抢完");
+                    $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+                    $(".num2").show();
+                    $(".conMain1").hide();
+                    $(".conMain2").show();
+                    $(".state1").html("<p>抢购码由成功购买者产生<p/><p>若想参与请联系成功购买者或关注公众号<p/>");
+
+                }else if(res.data.state == 3){
+                    //    购买一台了
+                    if(res.data.active.number == 1){
+                        $(".chenTli").html('恭喜您成功拿下创世版小未！<br>将抢购码分享给朋友吧<br>只有您能决定小未音箱花落谁家')
+                    }
+                    $(".chenTli").html('恭喜您获得小未音箱！<br>将抢购码分享给想要抢购小未的朋友吧！');
+                    sessionStorage.setItem('phone',res.data.meInformation.phone);
+                    $(".touxiang").attr("src",res.data.meInformation.imgurl);
+                    $(".conMain1").hide();
+                    $(".success").show();
+                    $(".conHead").hide();
+                    $(".yao ,.gzimg").hide();
+                    $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+                    postion1($(".success"));
+                    if(res.data.meInformation.mecode.length == 0){
+                        $(".texttishi").show();
+                    }else{
+                        $(".texttishi").hide();
+                        var str ="";
+                        for (var item of res.data.meInformation.mecode) {
+                            console.log(item);
+                            str =`<div class="copy" data-clipboard-text="${item.shap_up_code}" id="${item.shap_up_code}">
+                                        <p>${item.shap_up_code}</p>
+                                        <span>点击复制</span>
+                                    </div>`
+                            $(".tab1_aL").append(str);
+                            if(!item.flag){
+                                $('#'+item.shap_up_code).css("opacity",".3");
+                                $('#'+item.shap_up_code).removeClass("copy")
+                            }
+                        }
+                        var str1="";
+                        // var zonji=0;
+                        for (var item of res.data.meInformation.jifenlist) {
+                            // zonji += parseInt(item.jifen);
+                            str1 =`<ul>
+                                        <li>${item.creatime}</li>
+                                        <li>${item.jifen}</li>
+                                        <li>${item.type}</li>
+                                    </ul>`;
+                            $(".tab1_bL").append(str1);
+                        }
+                        $(".jifen").text(res.data.meInformation.sum);
+                    }
+
+                }else if(res.data.state == 4){
+                    //    正在开奖
+                    $(".zhongjian").text("正在开奖");
+                    $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+                    $("#shuL").text(res.data.meInformation.helpcodelist.length);
+                    $(".shap").text(res.data.meInformation.mecode[0].shap_up_code);
+                    $(".yao").hide();
+                    var myTemplate = Handlebars.compile($("#table-template1").html());
+                    var arr =[];
+                    for (item of res.data.meInformation.helpcodelist){
+                        var obj ={};
+                        var nickname = base.decode(item.nickname);
+                        obj.nickname = nickname;
+                        obj.imgurl = item.imgurl;
+                        obj.shap_up_code = item.shap_up_code;
+                        obj.flag = item.flag;
+                        arr.push(obj);
+                    }
+                    console.log(arr);
+                    $('.list').html(myTemplate(arr));
+                }else if(res.data.state == 5){
+                    //    没有中奖
+                        postion($(".conHead"));
+                        $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+
+                        $("#shuL").text(res.data.meInformation.helpcodelist.length);
+                        $(".num1").show();
+                        $(".shap").text(res.data.meInformation.mecode[0].shap_up_code);
+                        $(".shap").css("background","#aaa")
+                        $(".zhongjian").text("找身边中奖者索要抢购码可继续抢购");
+                        $(".yao").hide();
+                        forAdd(res.data.meInformation.helpcodelist);
+
+                        $(".list li").css("opacity",.5);
+
+
+                }else if(res.data.state == 6){
+                    //    中奖了已过期
+                    postion($(".conHead"));
+                    $("#shuL").text(res.data.meInformation.helpcodelist.length);
+                    $(".robbing").css("background","#ccc");
+                    $(".yao").hide();
+                    $(".num1").show();
+                    $(".num1 p").hide();
+                    $(".h1").text("很遗憾您的支付已过期");
+                    $(".zhongjian").text("支付已过期");
+                    $(".shap").text(res.data.meInformation.mecode[0].shap_up_code);
+                    if(res.data.meInformation.mecode[0].flag){
+                        $(".shap").css("color","red")
+                    }else{
+                        $(".shap").css("background","#ccc")
+                    }
+                    if(res.data.meInformation.helpcodelist.length == 0){
+                        $(".list").html('<p style="padding: 2rem 0;text-align: center">还没有人为您助抢</p>')
+                    }else{
+                        forAdd(res.data.meInformation.helpcodelist);
+
+                    }
+
+                }else if(res.data.state == 7){
+                    sessionStorage.setItem("md5",JSON.stringify(res.data.active.md5));
+                    sessionStorage.setItem("number",JSON.stringify(res.data.active.number));
+                    //    中奖没过期  支付
+                    postion($(".conHead"));
+                    $(".qgm").val(res.data.meInformation.wincode);
+                    $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+                    $(".yao").hide();
+                    $(".num1").show();
+                    $(".zhifu").show();
+                    $(".num1 p").hide();
+                    $(".h1").html("恭喜您成功打败99.9%的人<br>赢得购买资格");
+                    $(".zhongjian").text("请加快支付");
+                    $(".shap").text(res.data.meInformation.mecode[0].shap_up_code);
+                    if(res.data.meInformation.mecode[0].flag){
+                        $(".shap").css("color","red");
+                    }else{
+                        $(".shap").css("background","#ccc");
+                    }
+                    $("#shuL").text(res.data.meInformation.helpcodelist.length);
+
+                    forAdd(res.data.meInformation.helpcodelist);
+
+
+
+                }else if(res.data.state == 66){
+                    //    活动结束
+                    sessionStorage.setItem('value',JSON.stringify(res.data.meInformation));
+                    $(".tilx").html("活动结束");
+                    $(".chenTli").html('恭喜您获得小未音箱！<br>将抢购码分享给想要抢购小未的朋友吧！');
+                    $(".hide").hide();
+                    if(res.data.meInformation.flog){
+
+                        $(".touxiang").attr("src",res.data.meInformation.imgurl);
+                        $(".conMain1").hide();
+                        $(".success").show();
+                        $(".conHead").hide();
+                        $(".yao , .gzimg").hide();
+                        $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+                        postion1($(".success"));
+                        if (res.data.meInformation.mecode.length == 0) {
+                            $(".texttishi").show();
+                        }else{
+                            $(".texttishi").hide();
+                            var str ="";
+                            for (var item of res.data.meInformation.mecode) {
+                                console.log(item);
+                                str =`<div class="copy" data-clipboard-text="${item.shap_up_code}" id="${item.shap_up_code}">
+                                    <p>${item.shap_up_code}</p>
+                                    <span>点击复制</span>
+                                </div>`
+                                $(".tab1_aL").append(str);
+                                if(!item.flag){
+                                    $('#'+item.shap_up_code).css("opacity",".3");
+                                    $('#'+item.shap_up_code).removeClass("copy")
+                                }
+                            }
+                            var str1="";
+                            // var zonji=0;
+                            for (var item of res.data.meInformation.jifenlist) {
+                                // zonji +=parseInt(item.jifen);
+                                str1 =`<ul>
+                                    <li>${item.creatime}</li>
+                                    <li>${item.jifen}</li>
+                                    <li>${item.type}</li>
+                                </ul>`;
+                                $(".tab1_bL").append(str1)
+                            }
+                            $(".jifen").text(res.data.meInformation.sum);
+                        }
+
+                    }else{
+                        $(".robbing").css({"background":"#ccc",'box-shadow': '0rem 0rem 1rem #ccc'});
+                        $(".yao,.conMain1,.success").hide();
+                    }
+                }
+            }else{
+                alert(res.msg);
+                $(".robbing").css("background","#ccc");
+                $(".yao").hide();
+            }
+        }
+    });
+
+
+    function forAdd(helpcode){
+        var myTemplate = Handlebars.compile($("#table-template").html());
+        var arr =[];
+        for (item of helpcode){
+            var obj ={};
+            var nickname = base.decode(item.nickname);
+            obj.nickname = nickname;
+            obj.imgurl = item.imgurl;
+            obj.shap_up_code = item.shap_up_code;
+            obj.flag = item.flag;
+            arr.push(obj);
+        }
+        // console.log(arr);
+        $('.list').html(myTemplate(arr));
+    }
+
+    //点击支付
+    $(".zhifu button").click(function () {
+        $(".mozhifu").stop().slideDown();
+        $("body,html").addClass("html1")
+    });
+
+    // 复制
+    var clipboard = new ClipboardJS(".copy").on("success", function(e) {
+        var e = e || window.event;
+        console.log(clipboard);
+        alert("复制地址成功");
+    }).on("error", function(e) {
+        alert("复制失败");
+    });
+
+    // <!--点击查看地址-->
+    $(".fill").click(function (event) {
+        event.stopPropagation();
+        $(".next").text("确认");
+        $(".address").stop().slideDown();
+        $("body,html").addClass("html1");
+        $.ajax({
+            url:server+"/lookaddress",
+            data:{
+                phone:sessionStorage.getItem('phone'),
+                token:JSON.parse(sessionStorage.getItem('value')).token
+            },
+            success:function (res) {
+                $("#FullName").val(res.data.name);
+                $("#address").val(res.data.shippingaddress);
+                $(".addPhone").val(res.data.phone)
+            }
+        })
+    });
+
+    //活动规则
+    $(".spanWhat").click(function (event) {
+        event.stopPropagation();
+        $(".rule").stop().slideDown();
+        $("body,html").addClass("html1");
+    })
+    $(".cha").click(function () {
+        $(".address").slideUp();
+        $(".rule").slideUp();
+        $(".kaiqiang").slideUp();
+        $(".mozhifu").slideUp();
+        $("body,html").removeClass("html1")
+    });
+
+    // 填写地址
+    $(".next").click(function () {
+        $.ajax({
+            url:server+"/addaddress",
+            data:{
+                phone:$(".addPhone").val(),
+                token:JSON.parse(sessionStorage.getItem('value')).token,
+                name:$("#FullName").val(),
+                address:$("#address").val()
+            },
+            type:'post',
+            success:function (res) {
+                console.log(res);
+                if (res.code == 0){
+                    window.location.reload();
+                }else {
+                    alert(res.msg)
+                }
+            }
+        })
+    })
+</script>
+<script src="js/wx_pull.js"></script>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>邀请抢购</title>
+    <style>
+        html,body{
+            font-size: 625%;
+            height: 100%;
+            background: #181214;
+        }
+        body{
+            position: relative;
+            overflow: hidden;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: .14rem;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .main{
+            position: relative;
+            z-index: 122;
+            margin-top: -1.5rem;
+            padding: 0 .25rem;
+        }
+        .head{
+            padding: 2rem 0;
+            background: url("img/img_11.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .head a{
+            display: block;
+            text-align: center;
+        }
+        .head button{
+            background: #181214;
+            padding: .1rem .2rem;
+            color: #f9c033;
+            border-radius: .2rem;
+            border: 1px solid #f9c033;
+        }
+        .center{
+            text-align: center;
+        }
+        .con{
+            padding: 0 .24rem .3rem;
+            background: #fff;
+        }
+        h3{
+            color: #000;
+            padding: .3rem 0;
+            font-size: .16rem;
+            background:url("img/img_til.png") center no-repeat;
+            background-size: 100% 30%;
+        }
+        .pho{
+            border-bottom: 1px solid #000;
+            margin-bottom: .2rem;
+            position: relative;
+        }
+        .pho input{
+            outline: none;
+            border: none;
+            padding: 0 .3rem 0 .1rem;
+            line-height: 2.5;
+        }
+        .phone1{
+            width: 100%;
+            position: relative;
+        }
+        .yzm1{
+            width: 50%;
+        }
+        .pho button{
+            position: absolute;
+            width: 50%;
+            border: none;
+            outline: none;
+            line-height: 2;
+            height: 100%;
+            background: #fff;
+            text-align: center;
+            right: 0;
+            bottom: -2px;
+            color: #896c40;
+        }
+        .cha{
+            display: block;
+            position: absolute;
+            top: .1rem;
+            right: 0rem;
+            width: .6rem;
+            height: .3rem;
+            background: 80% 13% url("img/img_cha.png") no-repeat;
+            -webkit-background-size: 30% 60%;
+            background-size: 30% 60%;
+        }
+        .btn{
+            margin-top: .4rem;
+        }
+        .btn a{
+            display: block;
+            font-size: .17rem;
+            padding: .1rem 0;
+            background: #896c40;
+        }
+        .alert{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 444;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.7);
+        }
+        .alert>div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .push{
+            width: 80%;
+            padding: .3rem;
+            background: #fff;
+        }
+        .push p{
+            font-size: .18rem;
+            line-height: 2;
+            margin-bottom: .2rem;
+        }
+        .push div{
+            /*border: 1px solid #896c40;*/
+            padding: .25rem .2rem;
+            background: 54% 100% url("img/qk.png") no-repeat;
+            background-size: 64% 100%;
+        }
+        .push button{
+            width: 100%;
+            padding: .1rem 0;
+            color: #fff;
+            background: #896c40;
+            border: none;
+            margin-top: .3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <a href=""><button>我想抢购小未音箱</button></a>
+</div>
+
+<div class="main">
+    <div class="con">
+        <!--获取验证码-->
+        <div class="guize">
+            <h3 class="til center">帮好友抢小未音箱“抢购码”</h3>
+            <div class="pho">
+                <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" class="phone1" type="tel"  placeholder="请输入手机号">
+                <span class="cha"></span>
+            </div>
+            <div class="pho">
+                <input class="yzm1" type="text" placeholder="请输入验证码"> <button id="time" onclick="getyzm()">获取验证码</button>
+            </div>
+            <div class="btn center">
+                <a onclick="setmsg()">下一步</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert center">
+    <div>
+        <div class="push">
+            <p>抢码成功</p>
+            <div class="qgm">&nbsp; </div>
+            <button class="copy" data-clipboard-text="">复制给好友</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/clipboard.js"></script>
+<script src="js/pull.js"></script>
+<script>
+    var sever = "http://tfm.futuremelody.cn";
+    // var sever = "http://192.168.1.11:3000";
+
+    sessionStorage.setItem("al","222")
+    // 获取当前url-->
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+    // alert(GetQueryString("forphone"));
+
+    var num;
+    var time;
+    function setint(){
+        if(num==0){
+            clearInterval(time);
+            $("#time").prop("disabled",false);
+            $("#time").text("获取验证码")
+        }else{
+            $("#time").prop("disabled",true);
+            num -=1;
+            $("#time").text(num +"秒")
+        }
+    }
+
+    // 验证手机号
+    function isPhone(poneInput,phone) {
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!myreg.test(poneInput.val())) {
+            alert("请输入正确的手机号");
+            return false;
+        } else {
+            $.ajax({
+                url: sever+"/getPhoneCodeByLogin",
+                data:{
+                    phone:phone
+                },
+                type:"post",
+                success:function (data) {
+                    $("#time").text("发送成功");
+                    num = 60;
+                    // clearInterval(time);
+                    time  = setInterval('setint()',1000)
+                }
+            })
+        }
+    }
+
+    // 点击获取验证码
+    function getyzm(){
+        isPhone($(".phone1"),$(".phone1").val());
+    }
+
+    function setmsg(){
+        var phone = $(".phone1").val();
+        var yzm =$(".yzm1").val();
+        $.ajax({
+            url: sever+"/helpPeople ",
+            data:{
+                whophone:phone,
+                forphone:GetQueryString("forphone"),
+                code:yzm
+            },
+            type:"post",
+            success:function (data) {
+                console.log(data);
+                if(data.code == 0){
+                    $(".qgm").text(data.data);
+                    $(".copy").attr("data-clipboard-text",data.data);
+                    $(".alert").show();
+                }else {
+                    alert(data.msg)
+                }
+            },
+            error:function (err) {
+                console.log(err)
+            }
+        })
+    }
+    //点击内容为空
+    $(".cha").click(function () {
+        $(this).prev().val("")
+    });
+
+    $(".copy").attr("data-clipboard-text",3333);
+    //复制
+        var clipboard = new Clipboard(".copy").on("success", function(e) {
+            var e = e || window.event;
+            console.log(clipboard);
+            alert("复制地址成功");
+            $(".moban").hide();
+        }).on("error", function(e) {
+            alert("复制失败");
+        });
+
+        $(".copy").click(function () {
+            $(".alert").hide();
+        })
+</script>
+</html>

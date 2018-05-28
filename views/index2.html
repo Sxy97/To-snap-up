@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>我的首页</title>
+    <style>
+        html,body{
+            font-size: 625%;
+            height: 100%;
+            background: #181214;
+        }
+        body{
+            position: relative;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: .14rem;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .main{
+            margin-top: -1rem;
+            padding: 0 .25rem .6rem;
+        }
+        .head{
+            padding:1rem  0.2rem 2rem ;
+            color: #fff;
+            text-align: center;
+            background: url("img/img_s1.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .head button{
+            margin-top: .8rem;
+            padding: .1rem .2rem;
+            background: #181214;
+            border-radius: .2rem;
+            color: #ecd18e;
+            border: 1px solid #ecd18e;
+        }
+        .center{
+            text-align: center;
+        }
+        .con{
+            padding: 0 .24rem .3rem;
+            background: #fff;
+        }
+        .til{
+                font-size: .16rem;
+                font-weight: 600;
+                background: 100% 75% url(img/img_til.png) no-repeat;
+                background-size: 100% 30%;
+                padding-top: .3rem;
+
+        }
+        .til2{
+            font-size: .16rem;
+            font-weight: 600;
+            padding-top: .3rem;
+        }
+        .til4{
+            font-size: .18rem;
+            color: #f9c033;
+            padding-top: .5rem;
+        }
+        .til span{
+            color: #f9c033;
+        }
+        .til1{
+            padding-top: .2rem;
+            display: none;
+        }
+        .til1 h2{
+            font-size: .17rem;
+            margin-top: .1rem;
+        }
+        .til1 span{
+            font-size: .17rem;
+        }
+        .btn{
+            margin-top: .3rem;
+        }
+        .btn a{
+            display: block;
+            font-size: .16rem;
+            padding: .08rem 0;
+            background: #896c40;
+        }
+        .tilx{
+            font-weight: 600;
+            margin-top: .3rem;
+            line-height: 3;
+        }
+        table{
+            width: 100%;
+        }
+        table tr{
+            line-height: 2;
+        }
+        table tr:nth-child(1){
+            color: #896c40;
+        }
+        footer{
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background: #3b3537;
+            padding: .15rem 0;
+        }
+        footer button{
+            width: 80%;
+            color: #000;
+            font-size: .16rem;
+            border-radius: 5px;
+            padding: .1rem 0;
+            border: none;
+            background: #f9c033;
+        }
+        .moban{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.5);
+            display: none;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box>div{
+            width: 80%;
+            padding: .4rem .1rem;
+            background: #fff;
+        }
+        .box .url{
+            color: #896c40;
+            padding: .3rem 0;
+        }
+        .copy{
+            width: 100%;
+            padding: .1rem 0;
+            color: #fff;
+            border: none;
+            background: #896c40;
+        }
+        .zhongma{
+            color: #f9c033;
+            font-size: .18rem;
+            font-weight: 600;
+            margin-top: .3rem;
+        }
+        .til5{
+            color: #f9c033;
+            font-size: .18rem;
+            font-weight: 600;
+            padding-top: .3rem;
+        }
+        .tilte{
+            color: #f9c033;
+            font-size: .18rem;
+            line-height: 5;
+        }
+
+        .zhuang1 ,.zhuang3 , .zhuang2, .zhuang4{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <button class="recommend" data-clipboard-text="http://tfm.yanmaiw.com">推荐好友抢购</button>
+</div>
+
+<div class="main">
+    <div class="con">
+        <div class=" da">
+            <!--状态1 等开奖-->
+            <div class="zhuang1">
+                <div class="til center">距离开奖还有<br>
+                    <span class="hour">0</span>小时
+                    <span class="minus">00</span>分
+                    <span class="seconds">00</span>秒
+                </div>
+                <div class="btn center">
+                    <a href="/index7" class="see">查看</a>
+                </div>
+                <footer class="center">
+                    <button class="Invitation">邀好友帮我抢码</button>
+                </footer>
+            </div>
+            <!--状态2 中奖-->
+            <div class="zhuang2">
+                <div class="til2 center">恭喜你获得购买资格</div>
+                <div class="zhongma center">中奖码： <span id="shap" style="font-size: .18rem;"></span></div>
+                <footer class="center">
+                    <a><button class="payment">查看中奖码</button></a>
+                </footer>
+            </div>
+
+            <!--状态3  未获得中奖资格-->
+            <div class="zhuang3">
+                <div class="til4 center">很遗憾您未获得购买资格</div>
+                <footer class="center">
+                    <a href="/index4"><button>查看中奖名单</button></a>
+                </footer>
+            </div>
+
+            <!--状态4 开抢-->
+            <div class="zhuang4">
+                <div class="til5 center">小未音箱抢购中</div>
+                <footer class="center">
+                    <a href="/index"><button>返回首页</button></a>
+                </footer>
+            </div>
+
+
+            <div class="zhuang4_tab">
+                <div class="tilx">我的邀请码</div>
+                <table id="tableList" class="center">
+
+                </table>
+            </div>
+        </div>
+        <p class="tilte center">活动已结束</p>
+    </div>
+</div>
+
+<div class="moban">
+    <!--<div class="box center">-->
+        <!--<div>-->
+            <!--<p class="center">复制以下链接发送给好友<br/>邀好友帮忙抢码</p>-->
+            <!--<div class="url"></div>-->
+            <!--<button class="copy" data-clipboard-text="http://tfm.yanmaiw.com/index8.html?">复制链接</button>-->
+        <!--</div>-->
+    <!--</div>-->
+
+</div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/handlebars.js"></script>
+<script src="js/clipboard.js"></script>
+<script src="js/pull.js"></script>
+<script src="js/wx_pull.js"></script>
+<script id="table-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <tr style="color:{{ state }}">
+        {{#if fphone}}
+        <td>{{phone}}</td>
+        {{else}}
+        <td>null</td>
+        {{/if}}
+        <td>{{fphone}}</td>
+        <td>{{shap_up_code}}</td>
+    </tr>
+    {{/each}}
+</script>
+<script>
+
+    var user = JSON.parse(localStorage.getItem("key"));
+    $.ajax({
+        url: sever+"/homepage",
+        data:{
+            phone:user.phone,
+            token:user.token
+        },
+        type:"get",
+        success:function (data) {
+            console.log(data);
+            $(".tilte").hide();
+            $(".zhuang4_tab").show();
+            if(data.code == 0){
+                $(".zhuang1 .btn").show();
+                //没有中奖
+                if(data.data.state == 2){
+                    $(".da").show();
+                    $(".zhuang3").show();
+                    $(".zhuang1").hide();
+                    console.log(data.data.shapUpCode);
+                    full(data.data.shapUpCode);
+                }else if(data.data.state == 3){
+                    $(".da").show();
+                    //中奖了过时间了
+                    add("#ccc",true,data.data.msg,data.data.win.shap_up_code);
+                    full(data.data.shapUpCode);
+                }else if(data.data.state == 1){
+                    $(".da").show();
+                    //中奖了去支付
+                    $(".payment").click(function () {
+                        var url="http://tfm.futuremelody.cn/payment/fulll?shap="+data.data.win.shap_up_code+"*md5="+data.data.md5+"*number="+data.data.number;
+                        url = encodeURI(url);
+                        var redirectUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxff2af56a454e9c05&redirect_uri="+url+"&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+                        alert(redirectUrl);
+                        window.location.href = redirectUrl
+                    });
+                    $(".zhuang1").hide();
+                    add("#f9c033",false,data.data.msg,data.data.win.shap_up_code);
+                    full(data.data.shapUpCode);
+                }else if(data.data.state == 4){
+                    //购买成功
+                    $(".da").show();
+                    window.location.href="/index5"
+                }if(data.data.state == 5 || data.data.state == 0){
+                    $(".da").show();
+                    $(".zhuang4").show();
+                    $(".zhuang4_tab").hide();
+                }
+            }else if( data.code == 2){
+                //没开始之前
+                $(".tilte").hide();
+                $(".da").show();
+                $(".zhuang1 .btn").hide();
+                console.log(data.msg.startime);
+                //倒计时
+                var starttime = new Date(data.msg.startime.replace(/-/g,"/"));
+                // var starttime = new Date('2018/4/25 12:07:00');
+                var nowtime = new Date();
+                var time = starttime - nowtime;
+                  if(time > 0){
+                      add1();
+                  }
+                 function add1(){
+                      var nowtime = new Date();
+                      var time = starttime - nowtime;
+                      setTimeout(function () {
+                          if(time > 0){
+                              var hour = parseInt(time / 1000 / 60 / 60 % 24);
+                              var minute = parseInt(time / 1000 / 60 % 60);
+                              var seconds = parseInt(time / 1000 % 60);
+                              $(".hour").text(hour);
+                              $(".minus").text(minute);
+                              $(".seconds").text(seconds);
+                              $('.time').html(hour + "小时" + minute + "分钟" + seconds + "秒");
+                              add1()
+                          }else {
+                              window.location.reload();
+                          }
+                      },1000)
+                  }
+                $(".zhuang1").show();
+                $(".zhuang2").hide();
+                $(".zhuang3").hide();
+                $(".zhuang4").hide();
+                full(data.msg.shapUpCode)
+            }else if (data.code == 66) {
+                //活动以结束
+                $(".zhuang4_tab").hide();
+                $(".da").hide();
+                $(".tilte").show();
+            }if(data.code == 1){
+                alert("错误");
+            }
+        },
+        error:function (err) {
+            $(".zhuang4_tab").hide();
+        }
+    });
+
+    
+    function full(name) {
+        var myTemplate = Handlebars.compile($("#table-template").html());
+        $('#tableList').html(myTemplate(name));
+    }
+    function add(color, fleg ,til,name){
+        $(".zhuang1").hide();
+        $(".zhuang2").show();
+        $(".zhuang3").hide();
+        $(".zhuang4").hide();
+        $(".zhuang2 .til2").text(til);
+        $(".payment").css("background",color);
+        $(".payment").prop("disabled",fleg);
+        $("#shap").text(name);
+    }
+
+    $(".Invitation").click(function () {
+        // $(".moban").show();
+    });
+
+    $(".recommend").click(function () {
+        copy(".recommend")
+    });
+    // $(".copy").click(function () {
+    //     var phone = user.phone;
+    //     $(".copy").attr("data-clipboard-text","http://tfm.yanmaiw.com/index8.html?forphone=" +phone);
+    //     copy(".copy");
+    // });
+    //复制
+   function copy(name) {
+       var clipboard = new Clipboard(name).on("success", function(e) {
+           var e = e || window.event;
+           console.log(clipboard);
+           alert("复制地址成功");
+           $(".moban").hide();
+       }).on("error", function(e) {
+           alert("复制失敗");
+       });
+   }
+
+</script>
+</html>

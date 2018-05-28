@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>支付</title>
+    <style>
+        html,body{
+            font-size: 625%;
+            height: 100%;
+            background: #1a2c30;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: .14rem;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .main{
+            padding: 0 .25rem .6rem;
+            margin-top: -1.4rem;
+            position: relative;
+        }
+        .head img{
+            width: 100%;
+        }
+        h3{
+            position: relative;
+            font-size: .16rem;
+            background:url("img/img_til.png") center  no-repeat;
+            background-size: 100%;
+            padding: 0.3rem 0;
+        }
+        .center{
+            text-align: center;
+        }
+        .con{
+            padding: 0 .24rem .3rem;
+            background: #fff;
+        }
+        .btn_zf{
+            margin-top: .5rem;
+        }
+        .btn_zf a{
+            display: block;
+            font-size: .17rem;
+            /*border-radius: 8px;*/
+            padding: .1rem 0;
+            background: #896c40;
+        }
+        .disply{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .con img{
+            width: .3rem;
+            vertical-align: middle;
+            margin-right: .2rem;
+        }
+        .top{
+            margin-top: .2rem;
+            padding-right: .3rem;
+        }
+        input[type=radio]{
+            border: 1px solid red;
+            width: .16rem;
+            height: .16rem;
+            opacity: 0;
+            z-index: 100;
+        }
+        label{  position: absolute;
+                right: .31rem;
+                width: 0.16rem;
+                height: 0.16rem;
+                border-radius: 0.08rem;
+                border: 1px solid #ababab;}
+        input:checked+label{
+            background-color: #896c3f;
+            border: 1px solid #896c3f;
+        }   
+        input:checked+label::after {
+                content: "\a0";
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 18px;
+                width: 0.02rem;
+                height: 0.02rem;
+                margin-right: .4em;
+                border-radius: 50%;
+                border: 0.02rem solid #fff;
+                text-indent: .15em;
+                line-height: 1;
+                left: 0.04rem;
+                position: absolute;
+                top: 0.04rem;
+                background: #fff; 
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <img src="img/img_s1.jpg" alt="">
+</div>
+
+<div class="main">
+    <div class="con">
+        <!--获取验证码-->
+        <h3 class="center">选择支付方式</h3>
+
+        <div class="disply top wx">
+            <div>
+                <img src="img/wx1.png" alt="">
+                <span>微信支付</span>
+            </div>
+            <input id="weixin" type="radio" value="BC_WX_WAP" name="zhifu">
+            <label for="#weixin"></label>
+        </div>
+        <div class="disply top zfb" >
+            <div>
+                <img src="img/zfb1.png" alt="">
+                <span>支付宝支付</span>
+            </div>
+            <input id="zhifubao" type="radio" value="ALI_WAP" name="zhifu">
+            <label for="#zhifubao"></label>
+        </div>
+        <div class="btn_zf center">
+            <a>确认支付999元</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/pull.js"></script>
+
+</html>

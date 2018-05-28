@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>中奖积分</title>
+    <style>
+        html,body{
+            background: #000;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif, "Helvetica Neue", Helvetica, Arial;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-size: .9rem;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .main{
+            padding-top: 10rem;
+        }
+        .success{
+            background: #fff;
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            border-radius: .5rem;
+            position: relative;
+            padding: 3rem 0;
+
+        }
+         h2{
+            line-height: 2;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+        .touxiang{
+            position: absolute;
+            top: -3rem;
+            width: 6rem;
+            height: 6rem;
+            left: 50%;
+            margin-left: -3rem;
+            border-radius: 50%;
+            box-shadow: 0 5px 5px #0cedf1;
+        }
+
+        .success .back{
+            background: #fff;
+            color: #0cedf1;
+        }
+        .tab1{
+            padding-top: 1rem;
+            height: 13rem;
+            overflow: auto;
+        }
+        .tab1 div{
+            width: 6rem;
+            margin: 1rem auto;
+            border: 1px solid #999;
+            position: relative;
+        }
+        .tab1 div p{
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .tab1 div span{
+            font-size: .5rem;
+            color: #aaa;
+        }
+        .tab1 div .span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background: rgba(255,255,255,.8);
+            left: 0;
+            font-size: 1rem;
+            line-height: 3;
+        }
+        .tab1 ul{
+            width: 90%;
+            margin: auto;
+            display: flex;
+            line-height: 2;
+            justify-content: space-between;
+        }
+        .tab1 ul li{
+            width: 33.33%;
+        }
+        .zongji{
+            text-align: right;
+            font-size: 1.1rem;
+            padding: 1rem 3rem;
+        }
+        .success button{
+            position: absolute;
+            top: 10px;
+            padding: 5px .8rem;
+            border-radius: 15px;
+            outline: none;
+            background: #fff;
+            border: 1px solid #06DDDF;
+            box-shadow: 0px 0px 5px #06DDDF;
+        }
+        .success .btn1{
+            left: 10px;
+        }
+        .success .btn2{
+            right: 10px;
+        }
+        .btn1Alert,.zhuanfen{
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,.7);
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            display: none;
+        }
+        .btn1Alert>div,.zhuanfen>div{
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .frame{
+            width: 90%;
+            padding: 1rem 0;
+            background: #fff;
+            border-radius: 5px;
+        }
+        .frame>p{
+            font-size: .7rem;
+            color: #aaa;
+            line-height: 3;
+        }
+        .frame h2{
+            background: #eee;
+        }
+        .frame>div{
+            display: flex;
+            justify-content: center;
+            height: 3rem;
+            align-items: center;
+        }
+        .frame>div>div:nth-child(1){
+            width: 30%;
+            text-align: right;
+        }
+        .shouji input{
+           width: 100%;
+        }
+        .frame>div>div:nth-child(2){
+            width: 60%;
+        }
+        .frame input{
+            height: 1.8rem;
+        }
+        .yan>div:nth-child(2){
+            display: flex;
+            justify-content: space-between;
+        }
+        .yan,.shouji{
+            padding: 0 1rem;
+        }
+        .yan input{
+            width: 55%;
+        }
+        .yan button{
+            width: 44%;
+            background: #ff5f00;
+            color: #fff;
+            border: none;
+        }
+        .btn{
+            margin-top: 1rem;
+        }
+        .btn button{
+            padding: .45rem 2.5rem;
+            border: none;
+            color: #fff;
+        }
+        .btn button:nth-child(1){
+            background: #919191;
+            margin-right: 1rem;
+        }
+        .btn button:nth-child(2){
+            background: #58b34a;
+        }
+
+
+        /*.zhuanfen{*/
+            /*display: block;*/
+        /*}*/
+        .guize{
+            background: #fff;
+            width: 90%;
+            position: relative;
+            padding: 2rem;
+        }
+        .center{
+            text-align: center;
+        }
+        h3{
+            color: #000;
+            padding: .3rem 0;
+            font-size: 1.2rem;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        h3::after,h3::before{
+            content: " ";
+            position: absolute;
+            width: 2rem;
+            top: 1rem;
+            border-bottom: 1px solid #000;
+        }
+        h3::after{
+            right: 4rem;
+        }
+        h3::before{
+            left: 4rem;
+        }
+        .pho{
+            border-bottom: 1px solid #000;
+            margin-bottom: 1.5rem;
+            /*position: relative;*/
+        }
+        .pho input{
+            outline: none;
+            width: 100%;
+            border: none;
+            padding: 0 .8rem 0 .8rem;
+            line-height: 3;
+        }
+        .btn{
+            margin-top: 3rem;
+        }
+        .btn a{
+            display: block;
+            font-size: 1rem;
+            padding: .8rem 0;
+            background: #8bc34a;
+        }
+        .cha{
+            display: block;
+            position: absolute;
+            top: .1rem;
+            right: 0rem;
+            width: 2rem;
+            height: 2rem;
+            background: 22% 53% url("img/img_cha.png") no-repeat;
+            -webkit-background-size: 69% 68%;
+            background-size: 69% 68%;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="main">
+    <div class="success center">
+        <button class="btn1">绑定手机</button>
+        <button class="btn2">转出分贝</button>
+        <img class="touxiang" src="" alt="">
+        <h2>我的积分</h2>
+        <!--<p>您已成功购买小未音箱</p>-->
+
+        <!--tab-->
+        <div class="tab">
+            <!--<div class="tabBtn"><button>我的积分</button></div>-->
+            <div class="tab1 tab1_b" >
+                <ul>
+                    <li>时间</li>
+                    <li>获得分贝</li>
+                    <li>获得途径</li>
+                </ul>
+            </div>
+            <div class="zongji">总分贝：<span class="jifen">0</span></div>
+        </div>
+    </div>
+</div>
+
+<!--绑定手机-->
+<div class="btn1Alert">
+    <div>
+        <div class="frame">
+            <h2>绑定手机号</h2>
+            <p>请输入你要绑定的手机号，绑定后可用该手机号登录</p>
+            <div class="shouji">
+                <div>手机号码：</div>
+                <div>
+                    <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" type="tel" class="phone2">
+                </div>
+            </div>
+            <div class="yan">
+                <div>验证码：</div>
+                <div>
+                    <input type="number" class="yzm">
+                    <button class="gettime" onclick="getyzm()">发送验证码</button>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="cancel">取消</button>
+                <button class="phoneOk">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--转让分贝-->
+<div class="zhuanfen">
+    <div>
+        <div class="guize">
+            <span class="cha"></span>
+            <h3 class="til center">分贝转出</h3>
+            <div class="pho">
+                <input class="jifen1" type="number" onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="请输入转让分贝整数">
+
+            </div>
+            <div class="pho">
+                <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" class="forphone" type="tel"  placeholder="请输入对方手机号">
+
+            </div>
+            <!--<div class="pho">-->
+            <!--<input class="yzm1" type="text" placeholder="请输入验证码"> <button id="time" onclick="getyzm1()">获取验证码</button>-->
+            <!--</div>-->
+            <div class="btn center">
+                <a onclick="transfer()">立即转让</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/handlebars.js"></script>
+<script src="js/pull.js"></script>
+<script>
+
+
+
+
+    // 获取当前url-->
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+
+    if (sessionStorage.getItem('key') == null) {
+        var date ={
+            wxcode:getQueryString('code')
+        }
+    }else{
+        var date={
+            openid:JSON.parse(sessionStorage.getItem('key')).openid,
+            imgurl:JSON.parse(sessionStorage.getItem('key')).imgurl,
+            token:JSON.parse(sessionStorage.getItem('key')).token,
+        }
+    }
+
+    $.ajax({
+        url:server+"/getintegral",
+        type:"post",
+        data:date,
+        success:function (res){
+            console.log(res);
+            if (res.code == 0){
+                sessionStorage.setItem('key',JSON.stringify(res.data));
+                $(".touxiang").attr("src",res.data.imgurl);
+                $(".jifen").text(res.data.sum);
+                if(res.data.state){
+                    $(".btn1").hide();
+                }
+                var str1="";
+                //0/系统，1/转让，2/获赠
+                for (var item of res.data.list){
+                    str1 =`<ul>
+                            <li>${item.creatime}</li>
+                            <li>${item.jifen}</li>
+                            <li>${item.type}</li>
+                       </ul>`;
+                    $(".tab1_b").append(str1);
+                }
+            }else{
+                alert(res.msg)
+            }
+        }
+    });
+
+//    绑定手机
+    $(".btn1").click(function () {
+        $(".btn1Alert").stop().slideDown()
+    });
+    $(".cancel").click(function () {
+        $(".btn1Alert").stop().slideUp()
+    });
+
+    $(".btn2").click(function () {
+        $(".zhuanfen").slideDown();
+    });
+
+//    绑定手机号
+    $(".phoneOk").click(function () {
+        $.ajax({
+            url:server+"/register",
+            type:"post",
+            data:{
+                phone:$(".phone2").val(),
+                code:$(".yzm").val(),
+                openid:JSON.parse(sessionStorage.getItem('key')).openid,
+                imgurl:JSON.parse(sessionStorage.getItem('key')).imgurl,
+            },
+            success:function (res) {
+                if(res.code ==0){
+                    var obj = JSON.parse(sessionStorage.getItem('key'));
+                    obj.token =res.data.token;
+                    sessionStorage.setItem("key",JSON.stringify(obj));
+                    alert("绑定成功");
+                    window.location.reload();
+                }else{
+                    alert(res.msg)
+                }
+            }
+        })
+    });
+
+    $(".cha").click(function () {
+        $(".zhuanfen").slideUp();
+    });
+
+    //转让
+    function transfer() {
+        $.ajax({
+            url:server+"/transferintegral",
+            type:"post",
+            data:{
+                jifen:$(".jifen1").val(),
+                phone:$(".forphone").val(),
+                openid:JSON.parse(sessionStorage.getItem('key')).openid,
+                token:JSON.parse(sessionStorage.getItem('key')).token
+            },
+            success:function (res) {
+                if(res.code == 0){
+                    alert(res.data);
+                    window.location.reload();
+                }else{
+                    alert(res.msg)
+                }
+            }
+        })
+    }
+</script>
+</html>
