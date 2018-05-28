@@ -1,8 +1,7 @@
 var CONFIG = {
     host: '127.0.0.1',
     user: 'root',
-    password: 'Mpsfund2018',
-    // password: "admin",
+    password: "admin",
     database: 'futuresound',
     port: 3306,
     md5: 'dasfakjk979l.,..;/912fr(^)',
